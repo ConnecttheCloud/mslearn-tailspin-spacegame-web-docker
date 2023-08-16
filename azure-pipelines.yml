@@ -22,7 +22,7 @@ stages:
         buildContext: $(Build.Repository.LocalPath)
         repository: $(webRepository)
         dockerfile: '$(Build.SourcesDirectory)/Tailspin.SpaceGame.Web/Dockerfile'
-        containerRegistry: 'ACRConnection'
+        containerRegistry: 'Container Registry Connection'
         tags: |
           $(tag)
     - task: AzureWebAppContainer@1
