@@ -12,7 +12,7 @@ stages:
   jobs:  
   - job: 'Build'
     displayName: 'Build job'
-    pool:
+    pool: 'Azure Pipelines'
       vmImage: 'ubuntu-20.04'
     steps:
     - task: Docker@2
