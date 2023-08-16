@@ -25,10 +25,6 @@ stages:
         containerRegistry: 'ACRConnection'
         tags: |
           $(tag)
-
-    variables:
-      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-      dotnetSdkVersion: '6.x'
     variables:
     - group: Release
     steps:
