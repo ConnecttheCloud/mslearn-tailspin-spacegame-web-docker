@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: tailspinspacegame15452.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5a9b3b319e7e41bc844ffb92354bf73e }}/web:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./Tailspin.SpaceGame.Web/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
