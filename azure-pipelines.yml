@@ -1,4 +1,4 @@
-trigger: 'true'
+trigger: true
 
 variables:
   webRepository: 'web'
