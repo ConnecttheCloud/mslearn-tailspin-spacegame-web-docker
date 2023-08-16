@@ -1,5 +1,4 @@
 trigger: 'true'
-- '*'
 
 variables:
   webRepository: 'web'
