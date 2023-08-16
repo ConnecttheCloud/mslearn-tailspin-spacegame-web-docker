@@ -27,7 +27,6 @@ stages:
           $(tag)
     variables:
     - group: Release
-    steps:
     - task: AzureWebAppContainer@1
       inputs:
        appName: $(WebAppName)
