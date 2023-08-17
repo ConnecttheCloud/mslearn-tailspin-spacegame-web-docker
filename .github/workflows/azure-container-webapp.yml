@@ -9,25 +9,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Log in to registry
-      uses: docker/login-action@v2
+    - uses: azure/docker-login@v1
       with:
-        registry: https://spacegame101acr6669.azurecr.io/
+        login-server: https://spacegame101acr6669.azurecr.io/
         username: ${{ secrets.AzureAppService_ContainerUsername_5a9b3b319e7e41bc844ffb92354bf73e }}
         password: ${{ secrets.AzureAppService_ContainerPassword_9bb891ceda4849a3939d6bc1e52ae9ed }}
     
-    - name: Build and push container image to registry
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: spacegame101acr6669.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5a9b3b319e7e41bc844ffb92354bf73e }}/web:${{ github.sha }}
-        file: ./Tailspin.SpaceGame.Web/Dockerfile   
+    - run: |
+        docker build -f ./Tailspin.SpaceGame.Web/Dockerfile -t spacegame101acr6669.azurecr.io/web:${{ github.sha }} .
+        docker push spacegame101acr6669.azurecr.io/web:${{ github.sha }}     
 
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'spacegame101-web-6669'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_694df0d131ae479ebc1efee8f6db222e }}
-        images: 'spacegame101acr6669.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5a9b3b319e7e41bc844ffb92354bf73e }}/web:${{ github.sha }}'
+        images: 'spacegame101acr6669.azurecr.io/web:${{ github.sha }}'
