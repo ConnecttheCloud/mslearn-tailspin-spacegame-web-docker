@@ -16,7 +16,7 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_9bb891ceda4849a3939d6bc1e52ae9ed }}
 
     - run: |
-        docker build "./Tailspin.SpaceGame.Web/Dockerfile" -t spacegame101acr6669.azurecr.io/web:${{ github.sha }}
+        docker build "./Tailspin.SpaceGame.Web/" . -t spacegame101acr6669.azurecr.io/web:${{ github.sha }}
         docker push spacegame101acr6669.azurecr.io/web:${{ github.sha }}     
 
     - uses: azure/webapps-deploy@v2
