@@ -9,7 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Login to registry
     - uses: azure/docker-login@v1
       with:
         login-server: https://spacegame101acr6669.azurecr.io/
