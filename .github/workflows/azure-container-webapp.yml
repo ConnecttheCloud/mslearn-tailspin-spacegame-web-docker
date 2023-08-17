@@ -1,7 +1,6 @@
-name: container deploy to webapp
+name: Linux Container Node Workflow
 
 on: [push]
-  branches: [ "main" ]
 
 jobs:
   build:
